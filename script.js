@@ -116,6 +116,13 @@ document.addEventListener('keydown', function (event) {
     if (event.key === 'Enter'){
         nextTRA();
     }
+    if (event.key === 'F' || event.key === 'f'){
+        event.preventDefault();
+        var firstDiv = document.getElementById('name');
+        if (firstDiv) {
+            firstDiv.focus(); // A div fókuszba helyezése
+        }
+    }
 });
 
 function shuffle(array) {
@@ -132,12 +139,15 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 let currentTRAindex = 0;
+let errorNumber = 0;
+let errorList = [];
 
 
 function displayTRA(){
     const currentTRA = Areas[currentTRAindex];
     document.body.style.backgroundImage = 'url("Images/' + currentTRA.Name +'.png")';
-    displayPoints()
+    displayPoints();
+    displayErrors()
 }
 
 function nextTRA(){
@@ -164,10 +174,19 @@ function nextTRA(){
             displayTRA();
         }
         else{
-            alert('Congratulations! You have completed all the TRAs.')
-                    currentTRAindex = 0;
-                    displayTRA();
+            alert('Congratulations! You have completed all the TRAs.' + 'Your mistakes: ' + errorList.join(", "));
+            errorList.length = 0;
+            console.log("Űrítés után:" + errorList.join(", "));
+            currentTRAindex = 0;
+            errorNumber = 0;
+            displayTRA();
         }
+    }
+    else{
+        errorNumber += 1;
+        errorList.push(currentTRA.Name);
+        displayErrors();
+        //console.log("Error list:" + errorList.join(", "));
     }
     
     
@@ -177,4 +196,9 @@ function displayPoints(){
     const points = document.getElementById('point');
     points.textContent = (currentTRAindex + 1) + "/" + Areas.length;
 
+}
+
+function displayErrors(){
+    const errors = document.getElementById('error');
+    error.textContent = errorNumber;
 }
