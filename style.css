@@ -78,9 +78,9 @@ input[type=number]::-webkit-inner-spin-button {
   top: unset;
   right: unset;
   width: 80vw;
-  height: 35vh;
+  height: 40vh;
   position: absolute;
-  bottom: 30vh;
+  bottom: 20vh;
   left: 10vw;
 }
 .coolinput {
