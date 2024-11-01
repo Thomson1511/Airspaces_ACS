@@ -1,8 +1,8 @@
 body{
-    background-image: url('Images/11A.png');
-    background-repeat: no-repeat;
-    background-size: auto 100vh;
-    background-color: #272343;
+  background-image: url('Images/11A.png');
+  background-repeat: no-repeat;
+  background-size: auto 100vh;
+  background-color: #272343;
 }
 .container{
     background:linear-gradient(135deg, rgba(186, 232, 232, 0.1), rgba(186, 232, 232, 0));
