@@ -151,14 +151,16 @@ function displayTRA(){
 }
 
 function nextTRA(){
-    const enteredName = document.getElementById('name').value;
+    const enteredName = document.getElementById('name').value.toUpperCase();
     const enteredBot = document.getElementById('bot').value;
     const enteredTop = document.getElementById('top').value;
 
     const currentTRA = Areas[currentTRAindex];
 
     const isEnteredNameCorrect = enteredName === currentTRA.Name;
-    const isEnteredBotCorrect = enteredBot == currentTRA.Bot;
+    const isEnteredBotCorrect = 
+        (enteredBot == currentTRA.Bot) || 
+        (currentTRA.Bot == 0 && (enteredBot == 0 || enteredBot == 9500));
     const isEnteredTopCorrect = enteredTop == currentTRA.Top;
 
     const isAllCorrect = isEnteredNameCorrect && isEnteredBotCorrect && isEnteredTopCorrect;
@@ -174,11 +176,17 @@ function nextTRA(){
             displayTRA();
         }
         else{
-            alert('Congratulations! You have completed all the TRAs.' + 'Your mistakes: ' + errorList.join(", "));
+            if(errorList.length < 1){
+                alert('Congratulations! You made no mistakes')
+            }
+            else{
+                alert('Nice try! You have completed all the TRAs.' + 'Your mistakes: ' + errorList.join(", "));
+            }
             errorList.length = 0;
             console.log("Űrítés után:" + errorList.join(", "));
             currentTRAindex = 0;
             errorNumber = 0;
+            Areas = shuffle(Areas);
             displayTRA();
         }
     }
