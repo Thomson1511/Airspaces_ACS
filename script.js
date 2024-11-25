@@ -132,6 +132,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 let currentTRAindex = 0;
+let errorNumber = 0;
+let errorList = [];
 
 
 function displayTRA(){
@@ -174,6 +176,10 @@ function nextTRA(){
             displayTRA();
         }
     }
+    else{
+        errorNumber += 1;
+        displayErrors();
+    }
     
     
 }
@@ -182,4 +188,9 @@ function displayPoints(){
     const points = document.getElementById('point');
     points.textContent = (currentTRAindex + 1) + "/" + Areas.length;
 
+}
+
+function displayErrors(){
+    const errors = document.getElementById('error');
+    error.textContent = errorNumber;
 }

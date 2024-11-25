@@ -69,6 +69,17 @@ input[type=number]::-webkit-inner-spin-button {
     margin: 0;
 }
 
+.errors{
+  position: absolute;
+  bottom: 2vh;
+  left: 10vw;
+  font-weight: bold;
+  color: #9437ffcb;
+  font-size: 2rem;
+  transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+}
+
+
 @media only screen and (max-width: 767px){
   body{
     background-size: 100vw;
