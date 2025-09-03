@@ -134,12 +134,19 @@ document.addEventListener("DOMContentLoaded", function() {
 let currentTRAindex = 0;
 let errorNumber = 0;
 let errorList = [];
+let hintDiv = document.getElementById("HintDiv");
 
 
 function displayTRA(){
     const currentTRA = Areas[currentTRAindex];
     document.body.style.backgroundImage = 'url("Images/' + currentTRA.Name +'.png")';
     displayPoints()
+}
+
+function showHint() {
+    const currentTRA = Areas[currentTRAindex];
+    const hintDiv = document.getElementById("HintDiv");
+    hintDiv.innerHTML = ` TRA${currentTRA.Name}<br>Bot: ${currentTRA.Bot}<br>Top: ${currentTRA.Top}`;
 }
 
 function nextTRA(){
@@ -161,6 +168,7 @@ function nextTRA(){
         document.getElementById('name').value = '';
         document.getElementById('bot').value = '';
         document.getElementById('top').value = '';
+        hintDiv.textContent = '';
 
         currentTRAindex += 1;
 

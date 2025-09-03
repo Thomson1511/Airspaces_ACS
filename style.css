@@ -79,6 +79,22 @@ input[type=number]::-webkit-inner-spin-button {
   transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
 }
 
+.hint{
+  position: absolute;
+  bottom: 20vh;
+  right: 12vw;
+}
+
+.hintDiv{
+  position: absolute;
+  bottom: 12vh;
+  right: 5vw;
+  height: 3vw;
+  width: 10vw;
+  color: red;
+  font-weight: bold;
+  font-size: 2vh;
+}
 
 @media only screen and (max-width: 767px){
   body{
@@ -98,4 +114,31 @@ input[type=number]::-webkit-inner-spin-button {
   max-width: 40vw;
   margin-left: 20vw;
 }
+.hint{
+  position: absolute;
+  bottom: 10vh;
+  right: 35vw;
+}
+
+.hintDiv{
+  position: absolute;
+  bottom: 8vh;
+  right: 28vw;
+  height: 3vw;
+  width: 20vw;
+  color: red;
+  font-weight: bold;
+  font-size: 2vh;
+}
+
+.errors{
+  position: absolute;
+  top: 2vh;
+  left: 6vw;
+  font-weight: bold;
+  color: #9437ffcb;
+  font-size: 2rem;
+  transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+}
+
 }
